@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-info sticky-top py-0">
+<nav class="navbar navbar-expand-lg bg-light sticky-top py-0">
     <div class="container-fluid">
         <a class="navbar-brand m-0 p-0" href="index" style="font-size : 2rem; font-weight: bold;">
             IT Infotech
