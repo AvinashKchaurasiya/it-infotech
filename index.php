@@ -1,3 +1,7 @@
+<?php
+    error_reporting(E_ALL);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -156,24 +160,24 @@
                         <div class="col-md-7">
                             <h3 style="font-weight:bold; text-align:center;">Get In touch</h3>
                             <div class="card-body">
-                                <form>
+                                <form id="contactForm" onsubmit="submitContact(event)">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="subject">Subject</label>
-                                        <input type="text" class="form-control" id="subject" placeholder="Enter subject" required>
+                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Enter subject" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="message">Message</label>
-                                        <textarea class="form-control" id="message" rows="5" placeholder="Enter your message" required></textarea>
+                                        <textarea class="form-control" id="message" rows="5" name="message" placeholder="Enter your message" required></textarea>
                                     </div>
-                                    <button type="submit" class="btn btn-block">Submit</button>
+                                    <button type="submit" id="submitBtn" class="btn btn-block">Submit</button>
                                 </form>
                             </div>
                         </div>
@@ -228,6 +232,58 @@
     <?php
     require('includes/JSlink.php');
     ?>
+    <script>
+        $(document).ready(function() {
+            $("#contactForm").on("submit", function(event) {
+                event.preventDefault(); 
+
+                var formData = {
+                    name: $("#name").val(),
+                    email: $("#email").val(),
+                    subject: $("#subject").val(),
+                    message: $("#message").val()
+                };
+
+                $("#submitBtn").text("Loading..."); 
+
+                $.ajax({
+                    type: "POST",
+                    url: "Code/contact-us.php", 
+                    data: formData,
+                    dataType: "json",
+                    encode: true,
+                    success: function(response) {
+                        $("#submitBtn").text("Submit"); 
+
+                        // Show success message
+                        showNotification(response.message, "success");
+                    },
+                    error: function(xhr, status, error) {
+                        $("#submitBtn").text("Submit"); 
+
+                        // Show error message
+                        showNotification(response.message, "error");
+                    }
+                });
+            });
+
+            function showNotification(message, type) {
+                var notification = $("<div class='notification'></div>").text(message);
+                if (type === "success") {
+                    notification.addClass("success");
+                } else {
+                    notification.addClass("error");
+                }
+
+                $("body").append(notification);
+                notification.animate({
+                    right: "10px"
+                }, 500).delay(3000).fadeOut(500, function() {
+                    $(this).remove();
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

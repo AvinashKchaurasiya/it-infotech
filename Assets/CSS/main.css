@@ -7,20 +7,20 @@ body {
   top: 0;
   width: 100%;
   z-index: 1030;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s;
   background-color: #fff;
 }
 
 .scrolled {
-    background-color: #333; /* Change this to your desired color */
+  background-color: #333; /* Change this to your desired color */
 }
 .navbar .nav-link {
-    color: #000;
-    transition: color 0.3s;
+  color: #000;
+  transition: color 0.3s;
 }
 .navbar.scrolled .nav-link {
-    color: #fff;
+  color: #fff;
 }
 ::selection {
   background-color: #ff6f61;
@@ -332,10 +332,9 @@ html {
   }
 }
 
-
 /* our portfolio */
 
-.portfolio-title a{
+.portfolio-title a {
   font-size: 3rem;
   margin-bottom: 50px;
   position: relative;
@@ -345,10 +344,8 @@ html {
   font-weight: bold;
 }
 
-
-
 .portfolio-title::after {
-  content: '';
+  content: "";
   display: block;
   width: 100px;
   height: 4px;
@@ -384,7 +381,7 @@ html {
 
 .portfolio-item {
   background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -392,7 +389,7 @@ html {
 
 .portfolio-item:hover {
   transform: translateY(-10px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .portfolio-item img {
@@ -417,13 +414,13 @@ html {
 /* Responsive Styles */
 @media (max-width: 992px) {
   .portfolio-list {
-      grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .portfolio-list {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -489,8 +486,8 @@ html {
   text-decoration: none;
   font-weight: bold;
 }
-.footer-links li a:hover{
-  color:#e05a51;
+.footer-links li a:hover {
+  color: #e05a51;
 }
 .footer-social-icons {
   list-style: none;
@@ -505,31 +502,54 @@ html {
   color: #fff;
   text-decoration: none;
 }
-.bi-facebook:hover{
-  color:#3b5998;
+.bi-facebook:hover {
+  color: #3b5998;
 }
-.bi-instagram:hover{
-  color:#e4405f;
+.bi-instagram:hover {
+  color: #e4405f;
 }
-.bi-twitter:hover{
-  color:#1da1f2;
+.bi-twitter:hover {
+  color: #1da1f2;
 }
-.bi-linkedin:hover{
-  color:#0077b5;
+.bi-linkedin:hover {
+  color: #0077b5;
 }
 .footer-address {
   margin-top: 20px;
   line-height: 1.6;
 }
-.footer-address a{
+.footer-address a {
   text-decoration: none;
 }
 @media (max-width: 768px) {
   .footer-content {
-      flex-direction: column;
-      align-items: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
   }
   .footer-links {
-      margin-top: 10px;
+    margin-top: 10px;
   }
+}
+
+/* sms notificartion */
+
+.notification {
+  position: fixed;
+  top: 500px;
+  right: -300px;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #444;
+  border-radius: 3px;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+}
+
+.notification.success {
+  background-color: #4caf50;
+}
+
+.notification.error {
+  background-color: #f44336;
 }
