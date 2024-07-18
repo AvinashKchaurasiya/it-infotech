@@ -1,4 +1,5 @@
 <?php
+require_once('../database/connection.php');
 header('Content-Type: application/json');
 
 $response = [];
@@ -11,8 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Simple form validation
     if (empty($name) || empty($email) || empty($subject) || empty($message)) {
         $response['status'] = 'error';
-        echo $name;
-        die();
         $response['message'] = 'All fields are required.';
         echo json_encode($response);
         exit();
