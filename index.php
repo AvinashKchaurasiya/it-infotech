@@ -1,5 +1,6 @@
 <?php
     error_reporting(E_ALL);
+    require('config.php');
 ?>
 
 <!DOCTYPE html>
@@ -23,30 +24,31 @@
     include('includes/header.php');
     ?>
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Innovative Software Solutions for a Digital World</h1>
-            <p class="hero-subtitle">Expert Development in Web, Mobile, and Custom Software</p>
-
-            <a href="inquiry" class="hero-button">Get Started</a>
-        </div>
+<!-- Hero Section -->
+<div class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Innovative Software Solutions for a Digital World</h1>
+        <p class="hero-subtitle">Expert Development in Web, Mobile, and Custom Software</p>
+        
+        <a href="inquiry" class="hero-button">Get Started</a>
     </div>
+</div>
 
-    <!-- about section -->
+<!-- about section -->
 
-    <div class="container mt-5" id="about">
-        <div class="row pt-4">
-            <div class="col-sm-12">
-                <h2 class="about-title text-center">About Us</h2>
-            </div>
+<div class="container mt-5" id="about">
+    <div class="row pt-4">
+        <div class="col-sm-12">
+            <h2 class="about-title text-center">About Us</h2>
+        </div>
+        <?php echo ''; ?>
         </div>
         <div class="row">
             <div class="col-sm-12">
                 <div class="card about-card mb-3">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="Assets/images/logo/logo.png" class="img-fluid rounded-start" alt="About company" title="It Infotech">
+                            <img src="<?php echo BASEPATH.'Assets/images/logo/logo.png' ?>" class="img-fluid rounded-start" alt="About company" title="It Infotech">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
