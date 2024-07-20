@@ -1,6 +1,5 @@
 <?php
     error_reporting(E_ALL);
-    require('config.php');
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +47,7 @@
                 <div class="card about-card mb-3">
                     <div class="row g-0">
                         <div class="col-md-4">
-                            <img src="<?php echo BASEPATH.'Assets/images/logo/logo.png' ?>" class="img-fluid rounded-start" alt="About company" title="It Infotech">
+                            <img src="Assets/images/logo/logo.png" class="img-fluid rounded-start" alt="About company" title="It Infotech">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">

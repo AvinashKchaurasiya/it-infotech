@@ -1,3 +1,3 @@
 <?php
 
-define('BASEPATH', 'http://localhost/it-infotech/');
+define('BASEPATH', __DIR__ . '/');
