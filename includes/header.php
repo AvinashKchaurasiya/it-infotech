@@ -1,3 +1,4 @@
+!
 <nav class="navbar navbar-expand-lg bg-light sticky-header py-0">
     <div class="container-fluid">
         <a class="navbar-brand m-0 p-0" href="index" style="font-size : 2rem; font-weight: bold;">
@@ -15,7 +16,7 @@
                     <a class="nav-link" href="#about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./pages/services">Service</a>
+                    <a class="nav-link" href="#services">Service</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#portfolio">Portfolio</a>
