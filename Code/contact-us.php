@@ -1,6 +1,11 @@
 <?php
 require_once('../database/connection.php');
 header('Content-Type: application/json');
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
+
 
 $response = [];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -8,6 +13,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = htmlspecialchars(trim($_POST['email']));
     $subject = htmlspecialchars(trim($_POST['subject']));
     $message = htmlspecialchars(trim($_POST['message']));
+
+    // check that you are already contact with us or not
+
+    $check_exist_query = "SELECT * FROM contact where email='$email'";
+    $check_exist_result = mysqli_query($con, $check_exist_query);
+    if(mysqli_num_rows($check_exist_result) > 0) {
+        $response['status'] = 'error';
+        $response['message'] = 'You have already contacted with us using this email address.';
+        echo json_encode($response);
+        exit();
+    }
 
     // Simple form validation
     if (empty($name) || empty($email) || empty($subject) || empty($message)) {
@@ -24,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
-    $insertMessageData = "INSERT INTO contact(name , email , subject , message) Values('$name' , '$email' , '$subject' , '$message')";
+    $insertMessageData = "INSERT INTO contact(name , email , subject , messsage) Values('$name' , '$email' , '$subject' , '$message')";
     $result = mysqli_query($con, $insertMessageData);
     if($result){
         // If processing is successful

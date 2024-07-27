@@ -1,5 +1,5 @@
 <?php
-    error_reporting(E_ALL);
+error_reporting(E_ALL);
 ?>
 
 <!DOCTYPE html>
@@ -23,24 +23,25 @@
     include('includes/header.php');
     ?>
 
-<!-- Hero Section -->
-<div class="hero">
-    <div class="hero-content">
-        <h1 class="hero-title">Innovative Software Solutions for a Digital World</h1>
-        <p class="hero-subtitle">Expert Development in Web, Mobile, and Custom Software</p>
-        
-        <a href="inquiry" class="hero-button">Get Started</a>
-    </div>
-</div>
+    <!-- Hero Section -->
 
-<!-- about section -->
-
-<div class="container mt-5" id="about">
-    <div class="row pt-4">
-        <div class="col-sm-12">
-            <h2 class="about-title text-center">About Us</h2>
+    <div class="container-fluid p-0">
+        <div class="row hero vh-100 bg-dark text-white align-items-center justify-content-center text-center">
+            <div class="col-12">
+                <h1 class="display-4 fw-bold">Innovative Software Solutions for a Digital World</h1>
+                <p class="lead mt-3">Expert Development in Web, Mobile, and Custom Software</p>
+            </div>
         </div>
-        <?php echo ''; ?>
+    </div>
+
+    <!-- about section -->
+
+    <div class="container mt-5" id="about">
+        <div class="row pt-4">
+            <div class="col-sm-12">
+                <h2 class="about-title text-center">About Us</h2>
+            </div>
+            <?php echo ''; ?>
         </div>
         <div class="row">
             <div class="col-sm-12">
@@ -158,32 +159,32 @@
             <div class="col-sm-12">
                 <div class="card contact-card mb-3">
                     <div class="row g-0">
-                        <div class="col-md-7">
+                        <div class="col-sm-7">
                             <h3 style="font-weight:bold; text-align:center;">Get In touch</h3>
                             <div class="card-body">
                                 <form id="contactForm" onsubmit="submitContact(event)">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name" required>
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name" >
                                     </div>
                                     <div class="form-group">
                                         <label for="email">Email</label>
-                                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email" required>
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email" >
                                     </div>
                                     <div class="form-group">
                                         <label for="subject">Subject</label>
-                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Enter subject" required>
+                                        <input type="text" class="form-control" name="subject" id="subject" placeholder="Enter subject" >
                                     </div>
                                     <div class="form-group">
                                         <label for="message">Message</label>
-                                        <textarea class="form-control" id="message" rows="5" name="message" placeholder="Enter your message" required></textarea>
+                                        <textarea class="form-control" id="message" rows="5" name="message" placeholder="Enter your message" ></textarea>
                                     </div>
                                     <button type="submit" id="submitBtn" class="btn btn-block">Submit</button>
                                 </form>
                             </div>
                         </div>
-                        <div class="col-md-4 map-container" style="margin: 2rem 0 0 2rem;">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3573.3745182213697!2d80.38401711192745!3d26.41138807685338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c413da95a7d25%3A0x5f94c0c7ff24c3e8!2sRama%20Devi%20Market!5e0!3m2!1sen!2sin!4v1720955766435!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="100%" height="100%"></iframe>
+                        <div class="col-sm-5" style="margin-top: 2rem;">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3573.3745182213697!2d80.38401711192745!3d26.41138807685338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399c413da95a7d25%3A0x5f94c0c7ff24c3e8!2sRama%20Devi%20Market!5e0!3m2!1sen!2sin!4v1720955766435!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="100%" height="100%"></iframe>
                         </div>
                     </div>
                 </div>
@@ -236,7 +237,7 @@
     <script>
         $(document).ready(function() {
             $("#contactForm").on("submit", function(event) {
-                event.preventDefault(); 
+                event.preventDefault();
 
                 var formData = {
                     name: $("#name").val(),
@@ -245,32 +246,32 @@
                     message: $("#message").val()
                 };
 
-                $("#submitBtn").text("Loading..."); 
+                $("#submitBtn").text("Loading...");
 
                 $.ajax({
                     type: "POST",
-                    url: "Code/contact-us.php", 
+                    url: "Code/contact-us.php",
                     data: formData,
                     dataType: "json",
                     encode: true,
                     success: function(response) {
-                        $("#submitBtn").text("Submit"); 
+                        $("#submitBtn").text("Submit");
 
                         // Show success message
-                        showNotification(response.message, "success");
+                        showNotification(response.message, response.status);
                     },
                     error: function(xhr, status, error) {
-                        $("#submitBtn").text("Submit"); 
+                        $("#submitBtn").text("Submit");
 
                         // Show error message
-                        showNotification(response.message, "error");
+                        showNotification(response.message, response.status);
                     }
                 });
             });
 
             function showNotification(message, type) {
                 var notification = $("<div class='notification'></div>").text(message);
-                if (type === "success") {
+                if (type == "success") {
                     notification.addClass("success");
                 } else {
                     notification.addClass("error");
@@ -279,7 +280,7 @@
                 $("body").append(notification);
                 notification.animate({
                     right: "10px"
-                }, 500).delay(3000).fadeOut(500, function() {
+                }, 500).delay(3000).fadeOut(700, function() {
                     $(this).remove();
                 });
             }
