@@ -9,7 +9,7 @@ error_reporting(E_ALL);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="Assets/images/logo/logo.png" style="width: 100%; height:100%;" />
-    <title>IT Infotech - Software Solution</title>
+    <title>BharatX Technologis - Software Solution Company</title>
 
     <!-- CSS links -->
     <?php
@@ -25,11 +25,10 @@ error_reporting(E_ALL);
 
     <!-- Hero Section -->
 
-    <div class="container-fluid p-0">
-        <div class="row hero vh-100 bg-dark text-white align-items-center justify-content-center text-center">
+    <div class="container-fluid mt-4 p-0">
+        <div class="row hero bg-dark text-white align-items-center justify-content-center text-center">
             <div class="col-12">
-                <h1 class="display-4 fw-bold">Innovative Software Solutions for a Digital World</h1>
-                <p class="lead mt-3">Expert Development in Web, Mobile, and Custom Software</p>
+                <img src="Assets/images/hero/banner.png"/>
             </div>
         </div>
     </div>
@@ -53,7 +52,7 @@ error_reporting(E_ALL);
                         <div class="col-md-8">
                             <div class="card-body">
                                 <h5 class="card-text">
-                                    At <b><q><span style="color: black;">IT</span> <span style="color: lightblue;">Infotech</span></q></b>, we specialize in transforming innovative ideas into robust, scalable digital solutions. Our expertise spans across application development, web development, and custom software solutions, ensuring we cater to a wide array of business needs. Our dedicated team of professionals is committed to delivering high-quality products that enhance user experiences and drive business growth.
+                                    At <b><q><span style="color: black;">BharatX</span> <span style="color: lightblue;">Technologies</span></q></b>, we specialize in transforming innovative ideas into robust, scalable digital solutions. Our expertise spans across application development, web development, and custom software solutions, ensuring we cater to a wide array of business needs. Our dedicated team of professionals is committed to delivering high-quality products that enhance user experiences and drive business growth.
                                     <br><br>
                                     We leverage the latest technologies and agile methodologies to provide tailored solutions that align with our clients' goals and vision. Whether you need a sleek and functional website, a mobile app that engages users, or a comprehensive software system to streamline your operations, we have the skills and experience to bring your project to life.
                                 </h5>
@@ -203,7 +202,7 @@ error_reporting(E_ALL);
                         Kanpur Nagar, UP <br>
                         India<br>
                         <a href="tel:+91 88876 22182"><i class="bi bi-telephone-fill me-2"></i> +91 88876 22182</a><br>
-                        <a href="mailto:avinash8564kumar@gmail.com"><i class="bi bi-envelope me-2"></i>avinash8564kumar@gmail.com</a>
+                        <a href="mailto:contact@bharatxtechs.com "><i class="bi bi-envelope me-2"></i>contact@bharatxtechs.com</a>
                     </address>
                 </div>
                 <div>
@@ -259,12 +258,14 @@ error_reporting(E_ALL);
 
                         // Show success message
                         showNotification(response.message, response.status);
+                        $("#contactForm")[0].reset();
                     },
                     error: function(xhr, status, error) {
                         $("#submitBtn").text("Submit");
 
                         // Show error message
                         showNotification(response.message, response.status);
+                        $("#contactForm")[0].reset();       
                     }
                 });
             });
