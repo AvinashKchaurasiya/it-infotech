@@ -1,0 +1,71 @@
+.custom-file-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.custom-file-input {
+    display: none;
+}
+
+.btn-round {
+    border-radius: 20px; /* Makes the button rounded */
+    padding: 10px 20px;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.5);
+}
+
+/* Pagination Container */
+.dataTables_wrapper .dataTables_paginate {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Pagination Buttons */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    background-color: #007bff; 
+    color: white; 
+    border: 1px solid #007bff;
+    padding: 5px 10px; 
+    margin: 0 3px; 
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none; 
+}
+
+/* Pagination Buttons Hover State */
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    background-color: #007bff; 
+    color: white;
+    border: 1px solid #007bff; 
+}
+
+/* Active Pagination Button */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background-color: #007bff; 
+    border: 1px solid #007bff; 
+    color: white !important;
+}
+
+/* Disabled Pagination Button */
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+    background-color: #e9ecef; 
+    color: #6c757d; 
+    cursor: not-allowed;
+}
+
