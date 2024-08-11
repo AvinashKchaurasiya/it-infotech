@@ -104,20 +104,12 @@ require_once(__DIR__ . '/../Mail/sendMail.php');
                     </div>
                   </div>
                 </div>
-                <!-- <div class="col-md-5">
+                <div class="col-md-6">
                   <div class="form-group">
-                    <label for="image">Profile Image *</label>
-                    <div class="custom-file-container">
-                      <input type="file" class="custom-file-input" id="image" name="image" required>
-                      <button class="btn btn-primary btn-round" type="button" onclick="document.getElementById('image').click()">
-                        <i class="fas fa-upload me-2"></i>Choose Image
-                      </button>
-                    </div>
+                    <label for="joiningDate">Joining Date *</label>
+                    <input type="date" class="form-control" id="joiningDate" name="joiningDate" required>
                   </div>
                 </div>
-                <div class="col-md-3">
-                  <img id="image-preview" class="img-thumbnail d-none" alt="Image Preview">
-                </div> -->
               </div>
               <hr />
               <div class="row">

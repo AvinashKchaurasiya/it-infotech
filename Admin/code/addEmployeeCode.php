@@ -16,7 +16,14 @@
         $password = generatePassword($firstName, 10);
         $encPassword = sha1($password);
         $name = $firstName . ' ' . $lastName;
+        $status = 0;
+        $joinData = $_POST['joiningDate'];
 
+        if(!empty($salary)){
+            $salary = floatval($salary);
+        }else{
+            $salary = 0;
+        }
 
         // check duplicate employee
         $duplicateEmployeeQuery = "SELECT * FROM employees WHERE employee_email = '$email'";
@@ -61,7 +68,7 @@
         // print_r($recipients);die;
 
         if (move_uploaded_file($image['tmp_name'], $uploadFile)) {
-            $addEmployeQuery = "INSERT INTO employees (employee_name, employee_email, employee_number, employee_image, employee_position, employee_dob, employee_salary,  employee_password, employee_address) Values('$name' , '$email' , '$number' , '$imageName' , '$position' , '$dob' , '$salary', '$encPassword' , '$address')";
+            $addEmployeQuery = "INSERT INTO employees (employee_name, employee_email, employee_number, employee_image, employee_position, employee_dob, employee_jd, employee_salary,  employee_password, employee_address, employee_status) Values('$name' , '$email' , '$number' , '$imageName' , '$position' , '$dob' , '$joinData' , '$salary', '$encPassword' , '$address' , '$status')";
             $addEmployeQueryExecute = mysqli_query($con , $addEmployeQuery);
         }else{
             echo json_encode([
