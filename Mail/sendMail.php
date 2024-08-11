@@ -19,8 +19,8 @@ function sendMail($recipient) {
         $mail->isSMTP();
         $mail->Host = 'smtp.hostinger.com'; 
         $mail->SMTPAuth = true;
-        $mail->Username = 'donotreply@bharatxtechs.com';
-        $mail->Password = 'Donotreply#8564'; 
+        $mail->Username = 'exampple@gmail.com';
+        $mail->Password = 'password'; 
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
         $mail->Port = 587; // Use 587 for TLS
 
