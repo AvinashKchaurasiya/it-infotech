@@ -35,7 +35,7 @@ include("includes/header.php");
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="example" class="display table table-striped table-hover">
+                            <table id="employeeTable" class="display table table-striped table-hover">
                                 <thead>
                                     <tr>
                                         <th>#Sn.</th>
@@ -48,7 +48,7 @@ include("includes/header.php");
                                         <th>Joining Date</th>
                                         <th>Salary</th>
                                         <th>Address</th>
-                                        <th colspan="3">Actions</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -59,23 +59,23 @@ include("includes/header.php");
                                     if (mysqli_num_rows($fetchEmployeeDataQuery) > 0) {
                                         while ($EmployeeData = mysqli_fetch_assoc($fetchEmployeeDataQuery)) {
                                     ?>
-                                        <tr>
-                                            <td><?= $sn; ?></td>
-                                            <td>
-                                                <img src="assets/profile_pictures/<?= $EmployeeData['employee_image']?>" alt="Profile Image" style="width :75px; height : 75px; border-radius: 50%"/>
-                                            </td>
-                                            <td><?= $EmployeeData['employee_name']?></td>
-                                            <td><?= $EmployeeData['employee_email']?></td>
-                                            <td><?= $EmployeeData['employee_number']?></td>
-                                            <td><?= $EmployeeData['employee_position']?></td>
-                                            <td><?= $EmployeeData['employee_dob']?></td>
-                                            <td><?= $EmployeeData['employee_jd']?></td>
-                                            <td>$<?= $EmployeeData['employee_salary']?></td>
-                                            <td><?= $EmployeeData['employee_address']?></td>
-                                            <td><button>Edit</button> <button>Delete</button></td>
-                                        </tr>
+                                            <tr>
+                                                <td><?= $sn; ?></td>
+                                                <td>
+                                                    <img src="assets/profile_pictures/<?= $EmployeeData['employee_image'] ?>" alt="Profile Image" style="width :75px; height : 75px; border-radius: 50%" />
+                                                </td>
+                                                <td><?= $EmployeeData['employee_name'] ?></td>
+                                                <td><?= $EmployeeData['employee_email'] ?></td>
+                                                <td><?= $EmployeeData['employee_number'] ?></td>
+                                                <td><?= $EmployeeData['employee_position'] ?></td>
+                                                <td><?= $EmployeeData['employee_dob'] ?></td>
+                                                <td><?= $EmployeeData['employee_jd'] ?></td>
+                                                <td>$<?= $EmployeeData['employee_salary'] ?></td>
+                                                <td><?= $EmployeeData['employee_address'] ?></td>
+                                                <td><button>Edit</button> <button>Delete</button></td>
+                                            </tr>
                                     <?php
-                                        $sn++;
+                                            $sn++;
                                         }
                                     } else {
                                         echo "<tr><td colspan='11' style='color:red; text-align : center;'>No data found.</td></tr>";

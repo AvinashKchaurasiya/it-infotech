@@ -35,8 +35,8 @@ require_once(__DIR__ . '/../Mail/sendMail.php');
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="lastName">Last Name *</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" required>
+                    <label for="lastName">Last Name </label>
+                    <input type="text" class="form-control" id="lastName" name="lastName">
                   </div>
                 </div>
               </div>
