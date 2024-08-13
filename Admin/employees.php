@@ -16,17 +16,20 @@ include("includes/header.php");
                 <div class="card card-round">
                     <div class="card-header">
                         <div class="card-head-row">
-                            <div class="card-title">Employees</div>
+                            <div class="card-title" style="display: flex; justify-content:space-between;">
+                                <p class="me-5">Employees</p>
+                                <span id="sms"></span>
+                            </div>
                             <div class="card-tools">
                                 <a href="#" class="btn btn-label-success btn-round btn-sm me-2">
                                     <span class="btn-label">
-                                        <i class="fa fa-pencil"></i>
+                                        <i class="bi bi-download"></i>
                                     </span>
                                     Export
                                 </a>
                                 <a href="#" class="btn btn-label-info btn-round btn-sm">
                                     <span class="btn-label">
-                                        <i class="fa fa-print"></i>
+                                        <i class="bi bi-printer-fill"></i>
                                     </span>
                                     Print
                                 </a>
@@ -48,7 +51,7 @@ include("includes/header.php");
                                         <th>Joining Date</th>
                                         <th>Salary</th>
                                         <th>Address</th>
-                                        <th>Actions</th>
+                                        <th style="width: 15%;">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -59,7 +62,7 @@ include("includes/header.php");
                                     if (mysqli_num_rows($fetchEmployeeDataQuery) > 0) {
                                         while ($EmployeeData = mysqli_fetch_assoc($fetchEmployeeDataQuery)) {
                                     ?>
-                                            <tr>
+                                            <tr id="employee-row-<?= $EmployeeData['id']; ?>">
                                                 <td><?= $sn; ?></td>
                                                 <td>
                                                     <img src="assets/profile_pictures/<?= $EmployeeData['employee_image'] ?>" alt="Profile Image" style="width :75px; height : 75px; border-radius: 50%" />
@@ -70,9 +73,24 @@ include("includes/header.php");
                                                 <td><?= $EmployeeData['employee_position'] ?></td>
                                                 <td><?= $EmployeeData['employee_dob'] ?></td>
                                                 <td><?= $EmployeeData['employee_jd'] ?></td>
-                                                <td>$<?= $EmployeeData['employee_salary'] ?></td>
+                                                <td><i class="bi bi-inr"></i><?= $EmployeeData['employee_salary'] ?></td>
                                                 <td><?= $EmployeeData['employee_address'] ?></td>
-                                                <td><button>Edit</button> <button>Delete</button></td>
+                                                <td>
+                                                    <a href="#" class="me-2">Edit</a>
+                                                    <a href="#" class="me-2 text-danger">Delete</a>
+                                                    <?php
+                                                    if ($EmployeeData['employee_status'] == 0) {
+                                                    ?>
+                                                        <a href="javascript:void();" class="text-success" id="status-<?= $EmployeeData['id']; ?>" onclick="changeStatus(<?= $EmployeeData['id']; ?>, 1)">Activate</a>
+                                                    <?php
+                                                    } else {
+                                                    ?>
+                                                        <a href="#" class="text-danger" id="status-<?= $EmployeeData['id']; ?>" onclick="changeStatus(<?= $EmployeeData['id']; ?>, 0)">Deactivate</a>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </td>
+
                                             </tr>
                                     <?php
                                             $sn++;
